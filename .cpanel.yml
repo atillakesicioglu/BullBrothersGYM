@@ -1,0 +1,16 @@
+---
+# cPanel Git Deployment — https://docs.cpanel.net/knowledge-base/web-services/guide-to-git-deployment/
+# Hedef: site dosyalarını web köküne kopyalar. $HOME/public_html çalışmazsa
+# DEPLOYPATH satırını /home/KULLANICI_ADINIZ/public_html/ olarak değiştirin.
+deployment:
+  tasks:
+    - export DEPLOYPATH=$HOME/public_html/
+    - /bin/cp index.php $DEPLOYPATH
+    - /bin/cp install.php $DEPLOYPATH
+    - /bin/cp logo.jpg $DEPLOYPATH
+    - /bin/cp -R admin $DEPLOYPATH
+    - /bin/cp -R assets $DEPLOYPATH
+    - /bin/cp -R includes $DEPLOYPATH
+    - /bin/cp -R database $DEPLOYPATH
+    - /bin/mkdir -p $DEPLOYPATH/uploads
+    - /bin/cp uploads/.htaccess $DEPLOYPATH/uploads/
