@@ -1,0 +1,4 @@
+includes/config.local.php
+uploads/*
+!uploads/.htaccess
+install_lock
